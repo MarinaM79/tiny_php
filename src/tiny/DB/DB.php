@@ -279,7 +279,7 @@ class DB
           $data['created_at'] = date('Y-m-d H:i:s',time());
           $this->field[] = 'created_at';
       }
-      if (!isset($data['created_at'])){
+      if (!isset($data['updated_at'])){
           $data['updated_at'] = date('Y-m-d H:i:s',time());
           $this->field[] = 'updated_at';
       }

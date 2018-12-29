@@ -1,5 +1,2 @@
 .idea/*
 storage/logs/*.log
-storage/cache/data_cache/*
-storage/cache/view_cache/*
-static/uploads/img/*

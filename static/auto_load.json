@@ -1,0 +1,11 @@
+{
+  "index": {
+    "js": [
+      "vue_element/vue.js",
+      "vue_element/element.js"
+    ],
+    "css": [
+      "vue_element/element.css"
+    ]
+  }
+}

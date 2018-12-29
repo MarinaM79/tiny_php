@@ -1,0 +1,11 @@
+{
+  "app_name": "tiny",
+  "path":{
+    "cdn": "/usr/local",
+    "static": "/src",
+    "test": {
+      "path": "/root/src"
+    }
+  },
+  "sw_version": "1.0.0_UTF-8"
+}

@@ -10,6 +10,10 @@
 		-ms-user-select:none;
 		-webkit-user-select:none;
 	}
+	body{
+		height:100%;
+		overflow:hidden;
+	}
 	  .target_url{
 		  flex-grow:1,
 		  font-size:20px,

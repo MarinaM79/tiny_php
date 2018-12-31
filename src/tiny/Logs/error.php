@@ -19,6 +19,17 @@ final class Error_log{
         $this->write();
     }
     private function write(){
+        $last_day = date('Y-m-d',strtotime('-1 day'));
+        if(!is_dir(App.'storage/logs/old/error/'))mkdir(App.'storage/logs/old/error/');
+        if(!is_file(App.'storage/logs/old/error/tiny_error_'.$last_day.'.log')){
+            $content = file_get_contents(App.'storage/logs/tiny_error.log');
+            $old_access = fopen(App.'storage/logs/old/error/tiny_error_'.$last_day.'.log','w+');
+            flock($old_access,LOCK_EX);
+            fwrite($old_access,$content);
+            flock($old_access,LOCK_UN);
+            fclose($old_access);
+            unlink(App.'storage/logs/tiny_error.log');
+        }
         $error_log = fopen(App.'storage/logs/tiny_error.log','a+');
         $log = '[ '.$this->times.' ip : '.$this->client_ip .' ] : '.$_SERVER['REQUEST_METHOD'] .' '.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].' [ error : '.$this->error.' ]';
         $this->error_text = $log;

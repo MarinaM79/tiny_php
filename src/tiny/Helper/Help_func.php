@@ -131,9 +131,8 @@ function redirect($to,$is_display = false,$msg=''){  //  redirect to a route
 
 function tiny_bad($msg='Bad Request'){
     $log_text = "<h3 style='margin: 0 auto;text-align: center'>".$msg."</h3><hr/><p style='margin: 0 auto;text-align: center;font-size: 14px'>Tiny_PHP</p>";
-    $log = fopen(App.'storage/logs/tiny_error.log','a+');
-    fwrite($log,'[ Client IP : '.$_SERVER['REMOTE_ADDR'].' date: '.date('Y-m-d H:i:s',time()).' ] => '.$_SERVER['REQUEST_METHOD'].' '.$_SERVER['REQUEST_URI'].' Status : '.$msg.' '."\n");
-    fclose($log);
+    require_once App.'src/tiny/Logs/error.php';
+    new src\tiny\Logs\Error_log($msg);
     echo $log_text;
 }
 

@@ -8,7 +8,7 @@
  */
 namespace src\tiny\route;
 $GLOBALS['route_list'] = ['post'=>[],'get'=>[]];
-if(!preg_match('/.*(Mozilla|Chrome|WebKit|Safari).*/',$_SERVER['HTTP_USER_AGENT'])){
+if(!preg_match('/.*(Mozilla|Chrome|WebKit|Safari|curl|msn|Soso|Yahoo|Sogou|Baidu|Windows|xFruits|Feedly|DNSPod|Xianguo|360).*/',$_SERVER['HTTP_USER_AGENT'])){
     define('APIROUTE',true);  // disable the api xsrf check
 }
 class Route

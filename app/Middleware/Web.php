@@ -26,7 +26,7 @@ final class Web
                 unset($method[$k]);
             }
         }
-        if(!preg_match('/.*(Mozilla|Chrome|WebKit|Safari).*/',$_SERVER['HTTP_USER_AGENT'])&&!defined('APIROUTE')){
+        if(!preg_match('/.*(Mozilla|Chrome|WebKit|Safari|curl|msn|Soso|Yahoo|Sogou|Baidu|Windows|xFruits|Feedly|DNSPod|Xianguo|360).*/',$_SERVER['HTTP_USER_AGENT'])&&!defined('APIROUTE')){
             if(!route_exits($_SERVER['REQUEST_URI']))tiny_bad();
         }
 

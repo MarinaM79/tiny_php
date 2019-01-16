@@ -29,7 +29,8 @@
 	<div class="main" style="width:95%;margin: 0 auto;text-align:center">
 		<el-container style="margin:180px auto">
 		  <el-header style="font-size:55px;text-align:center">{{env('APPNAME')}}</el-header>
-		  <el-main style="margin:100px auto;display:flex;width:800px;text-align:center;">
+			<p style="margin-top:75px;font-weight:bold;font-size:14px;letter-spacing:0.2em;word-spacing:0.2em">轻量级的PHP Web框架</p>
+		  <el-main style="margin:60px auto;display:flex;width:800px;text-align:center;">
 			<div class="target_url" @click="go('Gitee')">Gitee</div>
 			<div class="target_url" @click="go('Github')">Github</div>
 			<div class="target_url" @click="go('Coding')">Coding</div>

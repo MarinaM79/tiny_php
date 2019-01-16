@@ -5,7 +5,7 @@ from sys import argv
 try:
     action = argv[1]
     name = argv[2]
-    if(action == 'Controller'):
+    if(action == 'Controller'):  # 创建控制器
         os.chdir('app/Controller')
         try:
             has_dir = name.index('/')
@@ -35,7 +35,7 @@ try:
             controller.writelines("class "+file_name+'\n')
             controller.writelines("{\n\n}")
             controller.close()
-    print('Controller create Successfully !')
+        print('Controller create Successfully !')
 except Exception as e:
     print('\nTiny_PHP : ')
     print('\nUsage :\n')

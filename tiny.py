@@ -8,8 +8,8 @@ from sys import argv
 try:
     action = argv[1]
     name = argv[2]
-    if(action == 'Controller'): # 创建控制器
-        os.chdir('app/Controller') # 切换工作目录
+    if(action == 'Controller'):  # 创建控制器
+        os.chdir('app/Controller')  # 切换工作目录
         try:
             has_dir = name.index('/')
         except Exception as e:

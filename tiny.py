@@ -4,11 +4,18 @@
 
 import os
 from sys import argv
+import sys
 
 try:
     action = argv[1]
-    name = argv[2]
     if(action == 'Controller'):  # 创建控制器
+        try:
+            name = argv[2]
+        except Exception as e:
+            print("\nPlease Check Your Command Arguments For : ", action)
+            print('\nUsage :\n')
+            print('\tController [Controller_Name]     create a controller\n')
+            sys.exit(0)
         os.chdir('app/Controller')  # 切换工作目录
         try:
             has_dir = name.index('/')
@@ -40,7 +47,7 @@ try:
             controller.close()
         print('Controller create Successfully !')  # 打印控制器创建成功提示
     else:  # 所有命令都不匹配 , 命令不存在 , 提示用户可执行的命令
-        print('Command Not Found : \n')
+        print('\nCommand Not Found : ')
         print('\nUsage :\n')
         print('\tController [Controller_Name]     create a controller\n')
 except Exception as e:  # 命令行未给参数 , 打印帮助信息

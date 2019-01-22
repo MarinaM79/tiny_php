@@ -21,13 +21,41 @@ final class route_load
                 $func = $action[1];
                 $class_name = "app\Controller\\".$action[0];
                 $cont = new $class_name();
-                $cont->$func(new Request);
+                // 反射获取方法所需要的参数
+                $p = new \ReflectionMethod($class_name, $func);
+                $param_list = $p->getParameters();
+
+                // 无参数, 直接调用
+                if (count($param_list) ==0){
+                    $cont->$func();
+                }
+
+                // 将 Request 注入
+                if (preg_match('/(r|R)equest.*/',$param_list[0]->name)){
+                      $cont->$func(new Request);
+                }else{
+                      $cont->$func();
+                }
             }else{
                 require_once App.'app/Controller/'.$action[0].'/'.$action[1].'.php';
                 $func = $action[2];
                 $class_name = "app\Controller\\".$action[0].'\\'.$action[1];
                 $cont = new $class_name();
-                $cont->$func(new Request);
+                // 反射获取方法所需要的参数
+                $p = new \ReflectionMethod($class_name, $func);
+                $param_list = $p->getParameters();
+
+                // 无参数, 直接调用
+                if (count($param_list) ==0){
+                    $cont->$func();
+                }
+
+                // 将 Request 注入
+                if (preg_match('/(r|R)equest.*/',$param_list[0]->name)){
+                    $cont->$func(new Request);
+                }else{
+                    $cont->$func();
+                }
             }
         }catch (\Exception $e){
             new Error_log($e);
